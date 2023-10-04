@@ -54,11 +54,10 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	// update the user profile with name and photo
-	const updateUserProfile = (name, photo) => {
+	const updateUserName = (name) => {
 		setLoading(true);
 		return updateProfile(auth.currentUser, {
-			displayName: name,
-			photoURL: photo
+			displayName: name
 		});
 	};
 
@@ -90,7 +89,7 @@ export const AuthProvider = ({ children }) => {
 		createUser,
 		continueWithGoogle,
 		continueWithGithub,
-		updateUserProfile,
+		updateUserName,
 		loginWithEmail,
 		logOutUser,
 		resetPass,
