@@ -26,7 +26,7 @@ const Signup = () => {
 
 				//* adding admin to the server.
 				axios
-					.post('/api/admin', { name, email, timestamp: new Date(), role: 'none' })
+					.post('/api/admins', { name, email, timestamp: new Date(), role: 'none' })
 					.then((data) => console.log(data))
 					.catch((err) => console.log(err.message));
 

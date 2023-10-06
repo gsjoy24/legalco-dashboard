@@ -1,7 +1,11 @@
-import React from 'react';
+import SecureRoute from '@/components/SecureRoute';
 
 const HomePage = () => {
-	return <div>This is the home page</div>;
+	return (
+		<SecureRoute>
+			<div>This is the home page</div>
+		</SecureRoute>
+	);
 };
 
 export default HomePage;

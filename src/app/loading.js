@@ -1,8 +1,10 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
+import UseGetCurrentUser from '@/hooks/UseGetCurrentUser';
 
 const Loading = () => {
+	const userData = UseGetCurrentUser();
 	return (
 		<div className="flex items-center justify-center min-h-screen bg-[#225559]">
 			<motion.div
