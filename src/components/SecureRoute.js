@@ -1,19 +1,20 @@
 'use client';
 import Loading from '@/app/loading';
 import UseGetCurrentUser from '@/hooks/UseGetCurrentUser';
-import { useRouter } from 'next/navigation';
+import NotifyPage from './NotifyPage';
+import { UserAuth } from '@/Providers/AuthProvider';
 
 const SecureRoute = ({ children }) => {
-	const userData = UseGetCurrentUser();
+	const { user, loading } = UserAuth();
+	const [userData, userDataLoading] = UseGetCurrentUser();
 	console.log(userData);
-	const router = useRouter();
-	if (!userData) {
+
+	if (!user || loading || userDataLoading || !userData) {
 		return <Loading />;
 	} else if (userData && userData?.role === 'admin') {
 		return <div>{children}</div>;
-	} else {
-		router.push('/login');
-		return;
+	} else if (userData && userData?.role === 'none') {
+		return <NotifyPage />;
 	}
 };
 

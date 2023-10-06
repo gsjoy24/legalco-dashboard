@@ -1,10 +1,23 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import UseGetCurrentUser from '@/hooks/UseGetCurrentUser';
+import { useRouter } from 'next/navigation';
+import { UserAuth } from '@/Providers/AuthProvider';
 
 const Loading = () => {
-	const userData = UseGetCurrentUser();
+	const router = useRouter();
+	const { user } = UserAuth();
+
+	useEffect(() => {
+		const redirectTimeout = setTimeout(() => {
+			router.push('/login'); // Redirect to the login page after 3 seconds
+		}, 5000);
+
+		return () => {
+			clearTimeout(redirectTimeout);
+		};
+	}, [user]);
+
 	return (
 		<div className="flex items-center justify-center min-h-screen bg-[#225559]">
 			<motion.div
