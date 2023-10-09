@@ -1,8 +1,4 @@
-import { AuthProvider } from '@/Providers/AuthProvider';
-import './globals.css';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
+import '../globals.css';
 
 export const metadata = {
 	title: 'Auth | LegalCO',
@@ -11,11 +7,5 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-	return (
-		<html lang="en">
-			<AuthProvider>
-				<body className={inter.className}>{children}</body>
-			</AuthProvider>
-		</html>
-	);
+	return <>{children}</>;
 }

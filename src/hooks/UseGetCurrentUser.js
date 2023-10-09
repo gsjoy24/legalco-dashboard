@@ -14,6 +14,7 @@ const UseGetCurrentUser = () => {
 				if (user?.email) {
 					const response = await axios(`/api/admins?email=${user?.email}`);
 					setCurrentUser(response.data);
+					console.log(response.data);
 				}
 			} catch (error) {
 				// Handle error

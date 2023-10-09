@@ -76,6 +76,7 @@ const Signup = () => {
 							placeholder="Enter your name"
 							required
 						/>
+						<input type="text" name="" id="" />
 					</div>
 					<div>
 						<label htmlFor="email" className="block text-sm font-medium text-gray-700">

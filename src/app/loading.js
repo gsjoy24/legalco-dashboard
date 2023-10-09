@@ -10,7 +10,7 @@ const Loading = () => {
 
 	useEffect(() => {
 		const redirectTimeout = setTimeout(() => {
-			router.push('/login'); // Redirect to the login page after 3 seconds
+			router.push('/login'); // Redirect to the login page after 5 seconds
 		}, 5000);
 
 		return () => {

@@ -1,11 +1,17 @@
-import SecureRoute from '@/components/SecureRoute';
+'use client';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
-const HomePage = () => {
+const RedirectToHome = () => {
+	const router = useRouter();
+	useEffect(() => {
+		router.push('/dashboard');
+	}, []);
 	return (
-		<SecureRoute>
-			<div>This is the home page</div>
-		</SecureRoute>
+		<div className="min-h-screen flex items-center justify-center bg-teal-800 text-white">
+			<div>Redirecting...</div>
+		</div>
 	);
 };
 
-export default HomePage;
+export default RedirectToHome;
