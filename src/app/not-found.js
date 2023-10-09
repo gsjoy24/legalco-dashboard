@@ -13,7 +13,7 @@ const NotFound = () => {
 				className="text-center p-8 max-w-lg"
 			>
 				<h1 className="text-4xl font-extrabold mb-4">Oops! Page Not Found</h1>
-				<p className="text-lg mb-6">The page you are looking for doesn't exist or has been moved.</p>
+				<p className="text-lg mb-6">The page you are looking for doesn&apos;t exist or has been moved.</p>
 				<Link href="/" className="text-lg underline duration-200 hover:text-[#e4e4e4]">
 					Go back to Dashboard
 				</Link>
