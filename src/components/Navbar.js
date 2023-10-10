@@ -25,13 +25,13 @@ const AdminNavbar = ({ children }) => {
 	};
 
 	return (
-		<div className="drawer lg:drawer-open bg-gray-100">
+		<div className="drawer lg:drawer-open bg-[#cdeced]">
 			<input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 			<div className="drawer-content">
 				{/* Page content here */}
-				<div className="lg:hidden flex items-center justify-between w-full px-6 py-2 border-b shadow-md text-[#465AF7]">
+				<div className="lg:hidden flex items-center justify-between w-full px-6 py-2 border-b shadow-md text-[#225559]">
 					<div className="text-2xl font-bold">
-						<Link href="/">MeetPlanr</Link>
+						<Link href="/dashboard">LegalCo</Link>
 					</div>
 					<label htmlFor="my-drawer-2" className="drawer-button">
 						<FaBarsStaggered />
@@ -42,15 +42,15 @@ const AdminNavbar = ({ children }) => {
 			<div className="drawer-side z-50">
 				<label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 				<ul className="menu w-80 text-base-content min-h-full p-4 space-y-3 bg-white">
-					<div className="text-4xl p-4 text-[#465AF7] font-bold border-b border-gray-300">
-						<Link href="/">MeetPlanr</Link>
+					<div className="text-4xl p-4 text-[#225559] font-bold border-b border-gray-300">
+						<Link href="/">LegalCo</Link>
 					</div>
 
 					<li>
 						<Link
 							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/dashboard' && 'bg-[#465AF7] text-white'}`}
-							href="/dashboard"
+							className={`flex items-center py-3 ${path == '/dashboard' && 'bg-[#225559] text-white'}`}
+							href=""
 						>
 							<BiSolidBarChartSquare size={20} /> <span>Dashboard</span>
 						</Link>
@@ -58,8 +58,8 @@ const AdminNavbar = ({ children }) => {
 					<li>
 						<Link
 							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/dashboard/add-new-blog' && 'bg-[#465AF7] text-white'}`}
-							href="/dashboard/add-new-blog"
+							className={`flex items-center py-3 ${path == '/add-new-blog' && 'bg-[#225559] text-white'}`}
+							href="/add-new-blog"
 						>
 							<MdEditDocument size={20} /> <span>Add New Blog</span>
 						</Link>
@@ -67,8 +67,8 @@ const AdminNavbar = ({ children }) => {
 					<li>
 						<Link
 							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/dashboard/all-blogs' && 'bg-[#465AF7] text-white'}`}
-							href="/dashboard/all-blogs"
+							className={`flex items-center py-3 ${path == '/all-blogs' && 'bg-[#225559] text-white'}`}
+							href="/all-blogs"
 						>
 							<HiUserGroup size={20} /> <span>All Blogs</span>
 						</Link>
@@ -76,8 +76,8 @@ const AdminNavbar = ({ children }) => {
 					<li>
 						<Link
 							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/dashboard/all-schedule' && 'bg-[#465AF7] text-white'}`}
-							href="/dashboard/all-schedule"
+							className={`flex items-center py-3 ${path == '/all-schedule' && 'bg-[#225559] text-white'}`}
+							href="/all-schedule"
 						>
 							<FaCalendarTimes size={20} /> <span>All Schedule</span>
 						</Link>
@@ -85,8 +85,8 @@ const AdminNavbar = ({ children }) => {
 					<li>
 						<Link
 							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/dashboard/all-users' && 'bg-[#465AF7] text-white'}`}
-							href="/dashboard/all-users"
+							className={`flex items-center py-3 ${path == '/all-users' && 'bg-[#225559] text-white'}`}
+							href="/all-users"
 						>
 							<HiUserGroup size={20} /> <span>All Users</span>
 						</Link>
@@ -94,8 +94,8 @@ const AdminNavbar = ({ children }) => {
 					<li>
 						<Link
 							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/dashboard/reports' && 'bg-[#465AF7] text-white'}`}
-							href="/dashboard/reports"
+							className={`flex items-center py-3 ${path == '/reports' && 'bg-[#225559] text-white'}`}
+							href="/reports"
 						>
 							<MdReportProblem size={20} /> <span>Reports</span>
 						</Link>

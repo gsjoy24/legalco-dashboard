@@ -17,9 +17,10 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-hook-form": "^7.46.2",
+    "react-hook-form": "^7.47.0",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.11.0",
+    "react-quill": "^2.0.0",
     "sweetalert2": "^11.7.31"
   },
   "devDependencies": {
