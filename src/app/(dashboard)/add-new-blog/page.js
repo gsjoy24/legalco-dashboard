@@ -128,7 +128,7 @@ const BlogPostForm = () => {
 				)}
 			</div>
 			<button
-				className="bg-[#465AF7] hover:bg-sky-950 duration-200 text-white py-2 w-full rounded-lg mt-6"
+				className="bg-[#225559] hover:bg-sky-950 duration-200 text-white py-2 w-full rounded-lg mt-6"
 				type={isSubmitting ? 'button' : 'submit'}
 			>
 				{isSubmitting ? 'Submitting' : 'Submit'}

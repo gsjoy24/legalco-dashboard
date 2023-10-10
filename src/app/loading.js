@@ -16,7 +16,7 @@ const Loading = () => {
 		return () => {
 			clearTimeout(redirectTimeout);
 		};
-	}, [user]);
+	}, [user, router]);
 
 	return (
 		<div className="flex items-center justify-center min-h-screen bg-[#225559]">

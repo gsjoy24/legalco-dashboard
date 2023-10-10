@@ -81,7 +81,7 @@ const Login = () => {
 				</form>
 				<p className="mt-4 text-sm text-gray-600">
 					Don&apos;t have an account?
-					<Link href="/signup" className={`text-[#225559] hover:text-[#173639]`}>
+					<Link href="/signup" className={`text-[#225559] hover:text-[#173639] pl-2`}>
 						Sign Up
 					</Link>
 				</p>
