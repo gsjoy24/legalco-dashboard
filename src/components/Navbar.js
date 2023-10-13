@@ -81,7 +81,7 @@ const AdminNavbar = ({ children }) => {
 						<Link
 							onClick={closeSideNAv}
 							className={`flex items-center py-3 ${path == '/reviews' && 'bg-[#225559] text-white'}`}
-							href="/manage-reviews"
+							href="/reviews"
 						>
 							<MdReviews size={20} /> <span>Manage Reviews</span>
 						</Link>
