@@ -3,7 +3,7 @@ import BlogRow from '@/components/BlogRow';
 import Loading from '@/components/Loading';
 import UseBlogs from '@/hooks/UseBlogs';
 
-const AllBlogs = () => {
+const Blogs = () => {
 	const [allBlogs, refetch, setRefetch] = UseBlogs();
 
 	return allBlogs && Array.isArray(allBlogs) ? (
@@ -50,4 +50,4 @@ const AllBlogs = () => {
 	);
 };
 
-export default AllBlogs;
+export default Blogs;

@@ -46,7 +46,11 @@ const BlogRow = ({ blog, i, refetch, setRefetch }) => {
 				<label>{i + 1}</label>
 			</th>
 			<td className="min-w-[200px]">
-				<Link target="_blank" href={`/blogs/${blog?._id}`} className="font-bold hover:underline">
+				<Link
+					target="_blank"
+					href={`https://www.legalco.com.bd/blogs/${blog?._id}`}
+					className="font-bold hover:underline"
+				>
 					{blog?.title}
 				</Link>
 			</td>
@@ -64,11 +68,7 @@ const BlogRow = ({ blog, i, refetch, setRefetch }) => {
 					>
 						{isDeleting ? <span className="loading loading-spinner loading-sm"></span> : <MdDelete size={25} />}
 					</button>
-					<Link
-						href={`/dashboard/update-blog/${blog?._id}`}
-						title="update"
-						className="hover:text-[#465AF7] duration-200"
-					>
+					<Link href={`/update-blog/${blog?._id}`} title="update" className="hover:text-[#465AF7] duration-200">
 						<FaSquarePen size={25} />
 					</Link>
 				</span>

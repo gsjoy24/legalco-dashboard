@@ -1,8 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { FaBarsStaggered } from 'react-icons/fa6';
-import { FaCalendarTimes } from 'react-icons/fa';
-import { MdEditDocument, MdReportProblem } from 'react-icons/md';
+import { MdEditDocument, MdReportProblem, MdReviews } from 'react-icons/md';
 import { BiArrowFromRight, BiSolidBarChartSquare } from 'react-icons/bi';
 import { HiUserGroup } from 'react-icons/hi';
 import { usePathname, useRouter } from 'next/navigation';
@@ -41,19 +40,15 @@ const AdminNavbar = ({ children }) => {
 			</div>
 			<div className="drawer-side z-50">
 				<label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-				<ul className="menu w-80 text-base-content min-h-full p-4 space-y-3 bg-white">
+				<ul className="menu w-60 text-base-content min-h-full p-4 space-y-3 bg-white">
 					<div className="text-4xl p-4 text-[#225559] font-bold border-b border-gray-300">
 						<Link href="/">LegalCo</Link>
 					</div>
 
 					<li>
-						<Link
-							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/dashboard' && 'bg-[#225559] text-white'}`}
-							href=""
-						>
+						<p className={`flex items-center py-3 ${path == '/dashboard' && 'bg-[#225559] text-white'}`}>
 							<BiSolidBarChartSquare size={20} /> <span>Dashboard</span>
-						</Link>
+						</p>
 					</li>
 					<li>
 						<Link
@@ -67,37 +62,28 @@ const AdminNavbar = ({ children }) => {
 					<li>
 						<Link
 							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/all-blogs' && 'bg-[#225559] text-white'}`}
-							href="/all-blogs"
+							className={`flex items-center py-3 ${path == '/blogs' && 'bg-[#225559] text-white'}`}
+							href="/blogs"
 						>
-							<HiUserGroup size={20} /> <span>All Blogs</span>
+							<HiUserGroup size={20} /> <span>Manage Blogs</span>
 						</Link>
 					</li>
 					<li>
 						<Link
 							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/all-schedule' && 'bg-[#225559] text-white'}`}
-							href="/all-schedule"
+							className={`flex items-center py-3 ${path == '/admins' && 'bg-[#225559] text-white'}`}
+							href="/admins"
 						>
-							<FaCalendarTimes size={20} /> <span>All Schedule</span>
+							<HiUserGroup size={20} /> <span>Manage Admins</span>
 						</Link>
 					</li>
 					<li>
 						<Link
 							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/all-users' && 'bg-[#225559] text-white'}`}
-							href="/all-users"
+							className={`flex items-center py-3 ${path == '/reviews' && 'bg-[#225559] text-white'}`}
+							href="/manage-reviews"
 						>
-							<HiUserGroup size={20} /> <span>All Users</span>
-						</Link>
-					</li>
-					<li>
-						<Link
-							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/reports' && 'bg-[#225559] text-white'}`}
-							href="/reports"
-						>
-							<MdReportProblem size={20} /> <span>Reports</span>
+							<MdReviews size={20} /> <span>Manage Reviews</span>
 						</Link>
 					</li>
 
