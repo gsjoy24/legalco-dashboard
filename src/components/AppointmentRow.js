@@ -6,10 +6,9 @@ import axios from 'axios';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
-import TimeZoneConverter from './TimeZoneConverter';
 import moment from 'moment/moment';
 
-const AppointmentRow = ({ appointment, idx }) => {
+const AppointmentRow = ({ appointment, idx, ReFetch }) => {
 	const [isDeleting, setIsDeleting] = useState(false);
 
 	const deleteAppointment = (id) => {
@@ -23,16 +22,17 @@ const AppointmentRow = ({ appointment, idx }) => {
 		}).then(async (result) => {
 			if (result.isConfirmed) {
 				setIsDeleting(true);
-				const res = await axios.delete('/api/blog', { data: { id } });
+				const res = await axios.delete('/api/appointment', { data: { id } });
 				const data = res.data;
-				if (data.deletedCount === 1) {
+				if (data.deletedCount > 0) {
+                    ReFetch()
 					Swal.fire({
+                        icon: "success",
 						title: 'Deleted!',
-						text: 'Your blog has been deleted!',
+						text: 'Your appointment has been deleted!',
 						timer: 2000,
 						showConfirmButton: false
 					});
-					setRefetch(!refetch);
 				} else {
 					toast.error('Something went wrong! Please try again!');
 				}

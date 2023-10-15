@@ -8,11 +8,12 @@ import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
 import TimeZoneConverter from './TimeZoneConverter';
 
-const LawyerRow = ({ lawyer, idx }) => {
+const LawyerRow = ({ lawyer, idx ,ReFetch}) => {
 	const [isDeleting, setIsDeleting] = useState(false);
 
-	const deleteBlog = (id) => {
+	const DeleteLawyer = (id) => {
 		Swal.fire({
+			icon:  "warning",
 			title: 'Are you sure?',
 			text: "You won't be able to revert this!",
 			showCancelButton: true,
@@ -22,16 +23,17 @@ const LawyerRow = ({ lawyer, idx }) => {
 		}).then(async (result) => {
 			if (result.isConfirmed) {
 				setIsDeleting(true);
-				const res = await axios.delete('/api/blog', { data: { id } });
+				const res = await axios.delete('/api/lawyers', { data: { id } });
 				const data = res.data;
-				if (data.deletedCount === 1) {
+				if (data.deletedCount > 0) {
+					ReFetch();
 					Swal.fire({
+						icon: "success",
 						title: 'Deleted!',
-						text: 'Your blog has been deleted!',
-						timer: 2000,
+						text: 'Your Lawyer has been deleted!',
+						timer: 1500,
 						showConfirmButton: false
 					});
-					setRefetch(!refetch);
 				} else {
 					toast.error('Something went wrong! Please try again!');
 				}
@@ -46,13 +48,11 @@ const LawyerRow = ({ lawyer, idx }) => {
 				<label>{idx + 1}</label>
 			</th>
 			<td className="min-w-[200px]">
-				<Link
-					target="_blank"
-					href={`https://www.legalco.com.bd/blogs/${lawyer?._id}`}
+				<button
 					className="font-bold hover:underline"
 				>
 					{lawyer?.name}
-				</Link>
+				</button>
 			</td>
 			<td className="">{lawyer?.department}</td>
 			<td className="">{lawyer?.designation}</td>
@@ -62,15 +62,15 @@ const LawyerRow = ({ lawyer, idx }) => {
 				<span className="flex justify-center items-center gap-3">
 					<button
 						disabled={isDeleting}
-						onClick={() => deleteBlog(lawyer?._id)}
+						onClick={() => DeleteLawyer(lawyer?._id)}
 						title="delete"
 						className="hover:text-red-500 duration-200"
 					>
 						{isDeleting ? <span className="loading loading-spinner loading-sm"></span> : <MdDelete size={25} />}
 					</button>
-					<Link href={`/update-blog/${lawyer?._id}`} title="update" className="hover:text-[#465AF7] duration-200">
-						<FaSquarePen size={25} />
-					</Link>
+					{/* <Link href={`/update-blog/${lawyer?._id}`} title="update" className="hover:text-[#465AF7] duration-200"> */}
+						<FaSquarePen size={25} title='Not Work Yet'/>
+					{/* </Link> */}
 				</span>
 			</th>
 		</tr>

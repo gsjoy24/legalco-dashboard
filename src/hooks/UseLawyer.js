@@ -19,7 +19,7 @@ const UseLawyer = () => {
 			}
 		})();
 	}, [control]);
-	return {lawyers, ReFetch};
+	return {lawyers,ReFetch};
 };
 
 export default UseLawyer;

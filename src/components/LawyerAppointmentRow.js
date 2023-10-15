@@ -9,11 +9,12 @@ import Swal from 'sweetalert2';
 import TimeZoneConverter from './TimeZoneConverter';
 import moment from 'moment/moment';
 
-const LawyerAppointmentRow = ({ appointment, idx }) => {
+const LawyerAppointmentRow = ({ appointment, idx,ReFetch }) => {
 	const [isDeleting, setIsDeleting] = useState(false);
 
 	const deleteAppointment = (id) => {
 		Swal.fire({
+            icon: "warning",
 			title: 'Are you sure?',
 			text: "You won't be able to revert this!",
 			showCancelButton: true,
@@ -23,16 +24,17 @@ const LawyerAppointmentRow = ({ appointment, idx }) => {
 		}).then(async (result) => {
 			if (result.isConfirmed) {
 				setIsDeleting(true);
-				const res = await axios.delete('/api/blog', { data: { id } });
+				const res = await axios.delete('/api/lawyerappointment', { data: { id } });
 				const data = res.data;
-				if (data.deletedCount === 1) {
+				if (data.deletedCount > 0) {
+                    ReFetch()
 					Swal.fire({
+                        icon: "success",
 						title: 'Deleted!',
-						text: 'Your blog has been deleted!',
+						text: 'Your appointment has been deleted!',
 						timer: 2000,
 						showConfirmButton: false
 					});
-					setRefetch(!refetch);
 				} else {
 					toast.error('Something went wrong! Please try again!');
 				}

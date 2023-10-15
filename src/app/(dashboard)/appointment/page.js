@@ -7,7 +7,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 const AppointmentPage = () => {
-    const {appointments} = UseAppointment();
+    const {appointments,ReFetch} = UseAppointment();
 	return (appointments && Array.isArray(appointments)) ? (
 		<>
 			<h1 className="md:text-2xl mb-5 text-xl font-bold">All General Appointment</h1>
@@ -28,18 +28,17 @@ const AppointmentPage = () => {
 						{/* rows */}
 						{appointments &&
 							appointments.map((appointment,idx) => (
-								<AppointmentRow appointment={appointment} idx={idx} key={appointment._id} />
+								<AppointmentRow appointment={appointment} idx={idx} ReFetch={ReFetch} key={appointment._id} />
 							))}
 					</tbody>
 					{/* foot */}
 					<tfoot>
-						<tr>
+					<tr>
 							<th>#</th>
 							<th>Name</th>
-							<th>Department</th>
-							<th>Designation</th>
-							<th>Email</th>
-							<th>Phone</th>
+							<th>Service Name</th>
+							<th>Time</th>
+							<th>Details</th>
 							<th>Action</th>
 						</tr>
 					</tfoot>

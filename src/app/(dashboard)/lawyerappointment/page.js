@@ -6,7 +6,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 const LawyerAppointmentPage = () => {
-    const {lawyerAppointments} = UseLawyerAppointment();
+    const {lawyerAppointments,ReFetch} = UseLawyerAppointment();
 
 	return (lawyerAppointments && Array.isArray(lawyerAppointments)) ? (
 		<>
@@ -28,7 +28,7 @@ const LawyerAppointmentPage = () => {
 						{/* rows */}
 						{lawyerAppointments &&
 							lawyerAppointments.map((appointment,idx) => (
-								<LawyerAppointmentRow appointment={appointment} idx={idx} key={appointment._id} />
+								<LawyerAppointmentRow appointment={appointment} ReFetch={ReFetch} idx={idx} key={appointment._id} />
 							))}
 					</tbody>
 					{/* foot */}
