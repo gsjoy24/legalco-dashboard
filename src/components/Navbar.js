@@ -53,6 +53,15 @@ const AdminNavbar = ({ children }) => {
 					<li>
 						<Link
 							onClick={closeSideNAv}
+							className={`flex items-center py-3 ${path == '/addlawyer' && 'bg-[#225559] text-white'}`}
+							href="/addlawyer"
+						>
+							<MdReviews size={20} /> <span>Add Lawyer</span>
+						</Link>
+					</li>
+					<li>
+						<Link
+							onClick={closeSideNAv}
 							className={`flex items-center py-3 ${path == '/add-new-blog' && 'bg-[#225559] text-white'}`}
 							href="/add-new-blog"
 						>

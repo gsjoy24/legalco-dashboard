@@ -11,3 +11,10 @@
 .legalCo-input::placeholder {
 	@apply text-teal-700 italic;
 }
+
+.child{
+    display: none;
+  }
+  .ex_1:hover .child{
+    display: flex;
+  }

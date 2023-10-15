@@ -20,7 +20,7 @@ export const DELETE = async (request) => {
 	}
 };
 
-export const GET = async () => {
+export const GET = async (request) => {
 	try {
 		const db = await DbConnect();
 		const reviewsCollection = db.collection('reviews');
