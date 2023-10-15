@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
-import { FaBarsStaggered } from 'react-icons/fa6';
+import { FaBarsStaggered, FaUserGraduate } from 'react-icons/fa6';
+import { FaUsersCog } from 'react-icons/fa';
 import { MdEditDocument, MdReportProblem, MdReviews } from 'react-icons/md';
 import { BiArrowFromRight, BiSolidBarChartSquare } from 'react-icons/bi';
 import { HiUserGroup } from 'react-icons/hi';
@@ -42,13 +43,13 @@ const AdminNavbar = ({ children }) => {
 				<label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 				<ul className="menu w-60 text-base-content min-h-full p-4 space-y-3 bg-white">
 					<div className="text-4xl p-4 text-[#225559] font-bold border-b border-gray-300">
-						<Link href="/">LegalCo</Link>
+						<Link href="/dashboard">LegalCo</Link>
 					</div>
 
 					<li>
-						<p className={`flex items-center py-3 ${path == '/dashboard' && 'bg-[#225559] text-white'}`}>
+						<Link href={"/dashboard"} className={`flex items-center py-3 ${path == '/dashboard' && 'bg-[#225559] text-white'}`}>
 							<BiSolidBarChartSquare size={20} /> <span>Dashboard</span>
-						</p>
+						</Link>
 					</li>
 					<li>
 						<Link
@@ -56,7 +57,16 @@ const AdminNavbar = ({ children }) => {
 							className={`flex items-center py-3 ${path == '/addlawyer' && 'bg-[#225559] text-white'}`}
 							href="/addlawyer"
 						>
-							<MdReviews size={20} /> <span>Add Lawyer</span>
+							<FaUserGraduate size={20} /> <span>Add Lawyer</span>
+						</Link>
+					</li>
+					<li>
+						<Link
+							onClick={closeSideNAv}
+							className={`flex items-center py-3 ${path == '/managelawyer' && 'bg-[#225559] text-white'}`}
+							href="/managelawyer"
+						>
+							<FaUsersCog size={20} /> <span>Manage Lawyer</span>
 						</Link>
 					</li>
 					<li>
