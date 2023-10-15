@@ -1,13 +1,13 @@
 'use client';
 import Link from 'next/link';
-import { FaBarsStaggered, FaUserGraduate } from 'react-icons/fa6';
+import { FaBarsStaggered, FaClipboardList, FaUserGraduate } from 'react-icons/fa6';
 import { FaUsersCog } from 'react-icons/fa';
-import { MdEditDocument, MdReportProblem, MdReviews } from 'react-icons/md';
+import { MdEditDocument, MdReviews } from 'react-icons/md';
 import { BiArrowFromRight, BiSolidBarChartSquare } from 'react-icons/bi';
 import { HiUserGroup } from 'react-icons/hi';
+import { PiUserListFill } from "react-icons/pi";
 import { usePathname, useRouter } from 'next/navigation';
 import { UserAuth } from '@/Providers/AuthProvider';
-
 const AdminNavbar = ({ children }) => {
 	const { logOutUser } = UserAuth();
 	const router = useRouter();
@@ -49,6 +49,24 @@ const AdminNavbar = ({ children }) => {
 					<li>
 						<Link href={"/dashboard"} className={`flex items-center py-3 ${path == '/dashboard' && 'bg-[#225559] text-white'}`}>
 							<BiSolidBarChartSquare size={20} /> <span>Dashboard</span>
+						</Link>
+					</li>
+					<li>
+						<Link
+							onClick={closeSideNAv}
+							className={`flex items-center py-3 ${path == '/appointment' && 'bg-[#225559] text-white'}`}
+							href="/appointment"
+						>
+							<FaClipboardList size={20} /> <span>Appointment</span>
+						</Link>
+					</li>
+					<li>
+						<Link
+							onClick={closeSideNAv}
+							className={`flex items-center py-3 ${path == '/lawyerappointment' && 'bg-[#225559] text-white'}`}
+							href="/lawyerappointment"
+						>
+							<PiUserListFill size={20} /> <span>Lawyer Appointment</span>
 						</Link>
 					</li>
 					<li>

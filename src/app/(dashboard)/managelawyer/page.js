@@ -1,19 +1,12 @@
 "use client"
 import LawyerRow from '@/components/LawyerRow';
 import Loading from '@/components/Loading';
+import UseLawyer from '@/hooks/UseLawyer';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 const ManageLawyerPage = () => {
-    const [lawyers,setLawyer] = useState(null);
-	useEffect(()=> {
-		(async()=> {
-			const res = await axios('/api/lawyers');
-			if(res?.data){
-				setLawyer(res?.data)
-			}
-		})()
-	},[])
+    const {lawyers} = UseLawyer();
 	return (lawyers && Array.isArray(lawyers)) ? (
 		<>
 			<h1 className="md:text-2xl mb-5 text-xl font-bold">All Lawyer</h1>
