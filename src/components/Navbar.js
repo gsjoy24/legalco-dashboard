@@ -41,56 +41,61 @@ const AdminNavbar = ({ children }) => {
 			</div>
 			<div className="drawer-side z-50">
 				<label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-				<ul className="menu w-60 text-base-content min-h-full p-4 space-y-3 bg-white">
-					<div className="text-4xl p-4 text-[#225559] font-bold border-b border-gray-300">
+				<ul className="menu w-60 min-h-full space-y-3 bg-[#225559] text-white">
+					<div className="text-4xl p-4 font-bold border-b border-gray-300 text-white">
 						<Link href="/dashboard">LegalCo</Link>
 					</div>
 
-					<li>
-						<Link
-							href={'/dashboard'}
-							className={`flex items-center py-3 ${path == '/dashboard' && 'bg-[#225559] text-white'}`}
-						>
+					<li
+						className={`hover:bg-[#fff] hover:text-[#225559] duration-200 rounded-md ${
+							path == '/dashboard' && 'bg-[#fff] text-[#225559]'
+						}`}
+					>
+						<Link href={'/dashboard'} className={`flex items-center py-3 `}>
 							<BiSolidBarChartSquare size={20} /> <span>Dashboard</span>
 						</Link>
 					</li>
-					<li>
-						<Link
-							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/appointment' && 'bg-[#225559] text-white'}`}
-							href="/appointment"
-						>
+					<li
+						className={`hover:bg-[#fff] hover:text-[#225559] duration-200 rounded-md ${
+							path == '/appointment' && 'bg-[#fff] text-[#225559]'
+						}`}
+					>
+						<Link onClick={closeSideNAv} className={`flex items-center py-3`} href="/appointment">
 							<FaClipboardList size={20} /> <span>Appointment</span>
 						</Link>
 					</li>
-					<li>
-						<Link
-							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/lawyerappointment' && 'bg-[#225559] text-white'}`}
-							href="/lawyerappointment"
-						>
+					<li
+						className={`hover:bg-[#fff] hover:text-[#225559] duration-200 rounded-md ${
+							path == '/lawyer-appointment' && 'bg-[#fff] text-[#225559]'
+						}`}
+					>
+						<Link onClick={closeSideNAv} className={`flex items-center py-3`} href="/lawyer-appointment">
 							<PiUserListFill size={20} /> <span>Lawyer Appointment</span>
 						</Link>
 					</li>
-					<li>
-						<Link
-							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/addlawyer' && 'bg-[#225559] text-white'}`}
-							href="/addlawyer"
-						>
+					<li
+						className={`hover:bg-[#fff] hover:text-[#225559] duration-200 rounded-md ${
+							path == '/add-lawyer' && 'bg-[#fff] text-[#225559]'
+						}`}
+					>
+						<Link onClick={closeSideNAv} className={`flex items-center py-3`} href="/add-lawyer">
 							<FaUserGraduate size={20} /> <span>Add Lawyer</span>
 						</Link>
 					</li>
-					<li>
-						<Link
-							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/managelawyer' && 'bg-[#225559] text-white'}`}
-							href="/managelawyer"
-						>
+					<li
+						className={`hover:bg-[#fff] hover:text-[#225559] duration-200 rounded-md ${
+							path == '/manage-lawyer' && 'bg-[#fff] text-[#225559]'
+						}`}
+					>
+						<Link onClick={closeSideNAv} className={`flex items-center py-3`} href="/manage-lawyer">
 							<FaUsersCog size={20} /> <span>Manage Lawyer</span>
 						</Link>
 					</li>
-					<li>
+					<li
+						className={`hover:bg-[#fff] hover:text-[#225559] duration-200 rounded-md ${
+							path == '/add-new-blog' && 'bg-[#fff] text-[#225559]'
+						}`}
+					>
 						<Link
 							onClick={closeSideNAv}
 							className={`flex items-center py-3 ${path == '/add-new-blog' && 'bg-[#225559] text-white'}`}
@@ -99,7 +104,11 @@ const AdminNavbar = ({ children }) => {
 							<MdEditDocument size={20} /> <span>Add New Blog</span>
 						</Link>
 					</li>
-					<li>
+					<li
+						className={`hover:bg-[#fff] hover:text-[#225559] duration-200 rounded-md ${
+							path == '/blogs' && 'bg-[#fff] text-[#225559]'
+						}`}
+					>
 						<Link
 							onClick={closeSideNAv}
 							className={`flex items-center py-3 ${path == '/blogs' && 'bg-[#225559] text-white'}`}
@@ -108,26 +117,26 @@ const AdminNavbar = ({ children }) => {
 							<HiUserGroup size={20} /> <span>Manage Blogs</span>
 						</Link>
 					</li>
-					<li>
-						<Link
-							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/admins' && 'bg-[#225559] text-white'}`}
-							href="/admins"
-						>
+					<li
+						className={`hover:bg-[#fff] hover:text-[#225559] duration-200 rounded-md ${
+							path == '/manage-admins' && 'bg-[#fff] text-[#225559]'
+						}`}
+					>
+						<Link onClick={closeSideNAv} className={`flex items-center py-3`} href="/manage-admins">
 							<HiUserGroup size={20} /> <span>Manage Admins</span>
 						</Link>
 					</li>
-					<li>
-						<Link
-							onClick={closeSideNAv}
-							className={`flex items-center py-3 ${path == '/reviews' && 'bg-[#225559] text-white'}`}
-							href="/reviews"
-						>
+					<li
+						className={`hover:bg-[#fff] hover:text-[#225559] duration-200 rounded-md ${
+							path == '/reviews' && 'bg-[#fff] text-[#225559]'
+						}`}
+					>
+						<Link onClick={closeSideNAv} className={`flex items-center py-3`} href="/reviews">
 							<MdReviews size={20} /> <span>Manage Reviews</span>
 						</Link>
 					</li>
-
-					<li>
+					{/* logout button */}
+					<li className={`hover:bg-[#fff] hover:text-[#225559] duration-200 rounded-md `}>
 						<button onClick={handleLogout}>
 							<BiArrowFromRight size={20} />
 							<span>Log Out</span>
