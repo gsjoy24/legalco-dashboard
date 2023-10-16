@@ -10,8 +10,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		// <SecureRoute>
+		<SecureRoute>
 			<AdminNavbar>{children}</AdminNavbar>
-		// </SecureRoute>
+		</SecureRoute>
 	);
 }
