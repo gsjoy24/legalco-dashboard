@@ -1,7 +1,7 @@
 const ReviewModal = ({ review, i }) => {
 	return (
 		<dialog id={`review${i}`} className="modal">
-			<div className="modal-box">
+			<div className="modal-box bg-[#225559] text-white">
 				<form method="dialog">
 					{/* if there is a button in form, it will close the modal */}
 					<button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
