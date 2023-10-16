@@ -10,9 +10,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		// todo: uncomment this component after develop whole dashboard to make secure all routes!
-		// <SecureRoute>
-		<AdminNavbar>{children}</AdminNavbar>
-		// </SecureRoute>
+		<SecureRoute>
+			<AdminNavbar>{children}</AdminNavbar>
+		</SecureRoute>
 	);
 }
