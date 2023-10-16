@@ -2,8 +2,8 @@
 import LawyerRow from '@/components/LawyerRow';
 import Loading from '@/components/Loading';
 import UseLawyer from '@/hooks/UseLawyer';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+
 
 const ManageLawyerPage = () => {
 	const { lawyers, ReFetch } = UseLawyer();
@@ -43,6 +43,9 @@ const ManageLawyerPage = () => {
 					</tfoot>
 				</table>
 			</div>
+
+
+
 		</>
 	) : (
 		<Loading />
