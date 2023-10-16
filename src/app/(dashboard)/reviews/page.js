@@ -28,7 +28,7 @@ const Reviews = () => {
 						{/* rows */}
 						{reviews &&
 							reviews.map((review, i) => (
-								<ReviewRow review={review} i={i} key={reviews._id} setRefetch={setRefetch} refetch={refetch} />
+								<ReviewRow review={review} i={i} key={review._id} setRefetch={setRefetch} refetch={refetch} />
 							))}
 					</tbody>
 					{/* foot */}

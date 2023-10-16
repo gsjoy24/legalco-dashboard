@@ -5,7 +5,7 @@ import { FaUsersCog } from 'react-icons/fa';
 import { MdEditDocument, MdReviews } from 'react-icons/md';
 import { BiArrowFromRight, BiSolidBarChartSquare } from 'react-icons/bi';
 import { HiUserGroup } from 'react-icons/hi';
-import { PiUserListFill } from "react-icons/pi";
+import { PiUserListFill } from 'react-icons/pi';
 import { usePathname, useRouter } from 'next/navigation';
 import { UserAuth } from '@/Providers/AuthProvider';
 const AdminNavbar = ({ children }) => {
@@ -47,7 +47,10 @@ const AdminNavbar = ({ children }) => {
 					</div>
 
 					<li>
-						<Link href={"/dashboard"} className={`flex items-center py-3 ${path == '/dashboard' && 'bg-[#225559] text-white'}`}>
+						<Link
+							href={'/dashboard'}
+							className={`flex items-center py-3 ${path == '/dashboard' && 'bg-[#225559] text-white'}`}
+						>
 							<BiSolidBarChartSquare size={20} /> <span>Dashboard</span>
 						</Link>
 					</li>
@@ -123,8 +126,7 @@ const AdminNavbar = ({ children }) => {
 							<MdReviews size={20} /> <span>Manage Reviews</span>
 						</Link>
 					</li>
-
-					<li className="bottom-4 absolute w-full">
+					<li>
 						<button onClick={handleLogout}>
 							<BiArrowFromRight size={20} />
 							<span>Log Out</span>

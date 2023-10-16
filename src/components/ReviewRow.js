@@ -1,6 +1,4 @@
 'use client';
-import Link from 'next/link';
-import { FaSquarePen } from 'react-icons/fa6';
 import { MdDelete } from 'react-icons/md';
 import axios from 'axios';
 import { useState } from 'react';
@@ -9,7 +7,7 @@ import Swal from 'sweetalert2';
 import TimeZoneConverter from './TimeZoneConverter';
 import { BsEyeFill, BsFillStarFill } from 'react-icons/bs';
 import Image from 'next/image';
-import ReviewModal from './ReviewModal';
+import ReviewModal from './Modals/ReviewModal';
 
 const ReviewRow = ({ review, i, refetch, setRefetch }) => {
 	const [isDeleting, setIsDeleting] = useState(false);
