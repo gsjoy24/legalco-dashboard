@@ -6,7 +6,7 @@ import { MdEmail } from 'react-icons/md';
 const LawyerAppointmentModal = ({ appointment, idx }) => {
 	return (
 		<dialog id={`LawyerAppointment${idx}`} className="modal">
-			<div className="modal-box max-w-2xl text-lg space-y-2 p-10">
+			<div className="modal-box max-w-2xl text-lg space-y-2 p-10 bg-[#225559] text-white">
 				<form method="dialog">
 					{/* if there is a button in form, it will close the modal */}
 					<button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
