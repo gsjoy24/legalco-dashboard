@@ -2,11 +2,13 @@
 import LawyerRow from '@/components/LawyerRow';
 import Loading from '@/components/Loading';
 import UseLawyer from '@/hooks/UseLawyer';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+
 
 const ManageLawyerPage = () => {
     const {lawyers,ReFetch} = UseLawyer();
+	const [show,setShow] = useState(false);
+	// const {name,image,description,department,socialmedia,designation,languages,contacts,experienceyear,practiceArea,experience} = lawyerDetails || {};
 	return (lawyers && Array.isArray(lawyers)) ? (
 		<>
 			<h1 className="md:text-2xl mb-5 text-xl font-bold">All Lawyer</h1>
@@ -28,7 +30,7 @@ const ManageLawyerPage = () => {
 						{/* rows */}
 						{lawyers &&
 							lawyers.map((lawyer,idx) => (
-								<LawyerRow lawyer={lawyer} ReFetch={ReFetch} idx={idx} key={lawyer._id} />
+								<LawyerRow lawyer={lawyer} ReFetch={ReFetch} idx={idx} key={lawyer._id} setShow={setShow} />
 							))}
 					</tbody>
 					{/* foot */}
@@ -45,6 +47,9 @@ const ManageLawyerPage = () => {
 					</tfoot>
 				</table>
 			</div>
+
+
+
 		</>
 	) : (
 		<Loading />
