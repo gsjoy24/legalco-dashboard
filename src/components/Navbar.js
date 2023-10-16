@@ -126,6 +126,7 @@ const AdminNavbar = ({ children }) => {
 							<MdReviews size={20} /> <span>Manage Reviews</span>
 						</Link>
 					</li>
+
 					<li>
 						<button onClick={handleLogout}>
 							<BiArrowFromRight size={20} />

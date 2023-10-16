@@ -47,9 +47,15 @@ export const PUT = async (request) => {
 export const GET = async (request) => {
 	try {
 		const db = await DbConnect();
+		const email = request.nextUrl.searchParams.get('email');
 		const adminCollection = db.collection('admins');
-		const result = await adminCollection.find().toArray();
-		return NextResponse.json(result);
+		if (email) {
+			const result = await adminCollection.findOne({ email });
+			return NextResponse.json(result);
+		} else {
+			const result = await adminCollection.find().toArray();
+			return NextResponse.json(result);
+		}
 	} catch (error) {
 		console.error('error for getting data', error);
 		NextResponse.json({ error: 'error for getting data' });
