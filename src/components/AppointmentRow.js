@@ -47,15 +47,7 @@ const AppointmentRow = ({ appointment, idx, ReFetch }) => {
 			<th>
 				<label>{idx + 1}</label>
 			</th>
-			<td className="min-w-[200px]">
-				<Link
-					target="_blank"
-					href={`https://www.legalco.com.bd/blogs/${appointment?._id}`}
-					className="font-bold hover:underline"
-				>
-					{appointment?.name}
-				</Link>
-			</td>
+			<td className="min-w-[200px]">{appointment?.name}</td>
 			<td className="min-w-[200px]">{appointment?.servicetype}</td>
 			<td className="min-w-[120px]">{moment(appointment?.timestamp).fromNow()}</td>
 			<td>
