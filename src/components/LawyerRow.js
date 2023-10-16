@@ -11,13 +11,13 @@ import Image from 'next/image';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaLocationDot, FaTwitter } from 'react-icons/fa6';
 import { FaTimesCircle } from 'react-icons/fa';
 
-const LawyerRow = ({ lawyer, idx ,ReFetch}) => {
+const LawyerRow = ({ lawyer, idx, ReFetch }) => {
 	const [isDeleting, setIsDeleting] = useState(false);
 	const [show,setShow] = useState(false);
 	const {name,image,description,department,socialmedia,designation,languages,contacts} = lawyer || {};
 	const DeleteLawyer = (id) => {
 		Swal.fire({
-			icon:  "warning",
+			icon: 'warning',
 			title: 'Are you sure?',
 			text: "You won't be able to revert this!",
 			showCancelButton: true,
@@ -32,7 +32,7 @@ const LawyerRow = ({ lawyer, idx ,ReFetch}) => {
 				if (data.deletedCount > 0) {
 					ReFetch();
 					Swal.fire({
-						icon: "success",
+						icon: 'success',
 						title: 'Deleted!',
 						text: 'Your Lawyer has been deleted!',
 						timer: 1500,
@@ -51,14 +51,7 @@ const LawyerRow = ({ lawyer, idx ,ReFetch}) => {
 			<th>
 				<label>{idx + 1}</label>
 			</th>
-			<td className="min-w-[200px]">
-				<button
-					className="font-bold hover:underline hover:text-blue-600"
-					onClick={() => setShow(true)}
-				>
-					{lawyer?.name}
-				</button>
-			</td>
+			<td className="min-w-[200px]">{lawyer?.name}</td>
 			<td className="">{lawyer?.department}</td>
 			<td className="">{lawyer?.designation}</td>
 			<td>{lawyer?.contacts?.email}</td>
@@ -74,7 +67,7 @@ const LawyerRow = ({ lawyer, idx ,ReFetch}) => {
 						{isDeleting ? <span className="loading loading-spinner loading-sm"></span> : <MdDelete size={25} />}
 					</button>
 					{/* <Link href={`/update-blog/${lawyer?._id}`} title="update" className="hover:text-[#465AF7] duration-200"> */}
-						<FaSquarePen size={25} title='Not Work Yet'/>
+					<FaSquarePen size={25} title="Not Work Yet" />
 					{/* </Link> */}
 				</span>
 			</th>

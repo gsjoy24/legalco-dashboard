@@ -1,20 +1,19 @@
 'use client';
-import Link from 'next/link';
-import { FaSquarePen } from 'react-icons/fa6';
 import { MdDelete } from 'react-icons/md';
 import axios from 'axios';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
-import TimeZoneConverter from './TimeZoneConverter';
 import moment from 'moment/moment';
+import LawyerAppointmentModal from './Modals/LawyerAppointmentModal';
+import { BsEyeFill } from 'react-icons/bs';
 
-const LawyerAppointmentRow = ({ appointment, idx,ReFetch }) => {
+const LawyerAppointmentRow = ({ appointment, idx, ReFetch }) => {
 	const [isDeleting, setIsDeleting] = useState(false);
 
 	const deleteAppointment = (id) => {
 		Swal.fire({
-            icon: "warning",
+			icon: 'warning',
 			title: 'Are you sure?',
 			text: "You won't be able to revert this!",
 			showCancelButton: true,
@@ -27,9 +26,9 @@ const LawyerAppointmentRow = ({ appointment, idx,ReFetch }) => {
 				const res = await axios.delete('/api/lawyerappointment', { data: { id } });
 				const data = res.data;
 				if (data.deletedCount > 0) {
-                    ReFetch()
+					ReFetch();
 					Swal.fire({
-                        icon: "success",
+						icon: 'success',
 						title: 'Deleted!',
 						text: 'Your appointment has been deleted!',
 						timer: 2000,
@@ -48,20 +47,17 @@ const LawyerAppointmentRow = ({ appointment, idx,ReFetch }) => {
 			<th>
 				<label>{idx + 1}</label>
 			</th>
-			<td className="min-w-[200px]">
-				<Link
-					target="_blank"
-					href={`https://www.legalco.com.bd/blogs/${appointment?._id}`}
-					className="font-bold hover:underline"
-				>
-					{appointment?.name}
-				</Link>
-			</td>
+			<td className="min-w-[200px]">{appointment?.name}</td>
 			<td>{appointment?.lawyerName}</td>
 			<td>{moment(appointment?.timestamp).fromNow()}</td>
 			<td>
-                <button className='hover:text-blue-600 hover:underline'>Details</button>
-            </td>
+				<BsEyeFill
+					size={20}
+					className="hover:text-[#225559] hover:scale-110 duration-200 hover:underline mx-auto"
+					onClick={() => document.getElementById(`LawyerAppointment${idx}`).showModal()}
+				/>
+				<LawyerAppointmentModal appointment={appointment} idx={idx} />
+			</td>
 			<th>
 				<span className="flex items-center gap-3">
 					<button

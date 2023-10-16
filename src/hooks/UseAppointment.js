@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 
 const UseAppointment = () => {
 	const [control, setControl] = useState(false);
-    const [appointments,setAppointments] = useState(null);
-    const ReFetch = () => {
-        setControl(!control);
-    }
+	const [appointments, setAppointments] = useState(null);
+	const ReFetch = () => {
+		setControl(!control);
+	};
 	useEffect(() => {
 		(async () => {
 			try {
@@ -19,7 +19,7 @@ const UseAppointment = () => {
 			}
 		})();
 	}, [control]);
-	return {appointments, ReFetch};
+	return { appointments, ReFetch };
 };
 
 export default UseAppointment;
