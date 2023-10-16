@@ -750,7 +750,7 @@ const AddLawyerPage = () => {
                      type="submit"
                      className="bg-[#225559] hover:bg-transparent border-2 border-[#225559] border-transparent hover:border-[#225559] text-white hover:text-[#35868b] py-2 px-6 rounded-full duration-300"
                   >
-                     {isSubmitting ? <span className="loading loading-dots loading-md"></span> : "Request Appoinment" }
+                     {isSubmitting ? <span className="loading loading-dots loading-md"></span> : "Add Lawyer" }
                      {/* { "Request Appoinment" } */}
                   </button>
                </div>

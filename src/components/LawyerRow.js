@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { FaSquarePen } from 'react-icons/fa6';
+import { FaEnvelope, FaPhone, FaSquarePen } from 'react-icons/fa6';
 import { MdDelete } from 'react-icons/md';
 import axios from 'axios';
 import { useState } from 'react';
@@ -9,9 +9,12 @@ import Swal from 'sweetalert2';
 import TimeZoneConverter from './TimeZoneConverter';
 import Image from 'next/image';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaLocationDot, FaTwitter } from 'react-icons/fa6';
+import { FaTimesCircle } from 'react-icons/fa';
 
-const LawyerRow = ({ lawyer, idx ,ReFetch, setShow}) => {
+const LawyerRow = ({ lawyer, idx ,ReFetch}) => {
 	const [isDeleting, setIsDeleting] = useState(false);
+	const [show,setShow] = useState(false);
+	const {name,image,description,department,socialmedia,designation,languages,contacts} = lawyer || {};
 	const DeleteLawyer = (id) => {
 		Swal.fire({
 			icon:  "warning",
@@ -78,12 +81,13 @@ const LawyerRow = ({ lawyer, idx ,ReFetch, setShow}) => {
 
 {/*================= Modal ======================*/}
 
-{/* {show &&		
+{show &&		
 			<div className="w-full h-screen fixed top-0 left-0 bg-slate-600 bg-opacity-30 flex items-center justify-center">
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center my-14 p-8 rounded-lg lawyer_card_bg_imgae">
+				<div className="grid ml-60 grid-cols-1 md:grid-cols-2 gap-10 items-center my-14 p-8 rounded-lg relative text-base bg-[#225559e1]">
+					<button onClick={() => setShow(false)} className='text-4xl text-red-500 absolute -top-3 -right-3 bg-[#fff] rounded-full'><FaTimesCircle/></button>
                   <div className="flex justify-center">
                      <Image
-                        className="object-cover w-full max-h-[500px]"
+                        className="object-cover w-full max-h-[500px] rounded-xl border-2"
                         width={300}
                         height={300}
                         src={image}
@@ -91,11 +95,11 @@ const LawyerRow = ({ lawyer, idx ,ReFetch, setShow}) => {
                      />
                   </div>
 
-                  <div className="text-gray-50 col-span-2">
-                     <h2 className={`${merriweather.className} text-4xl`}>
+                  <div className="text-gray-50">
+                     <h2 className={`text-4xl`}>
                         {name}
                      </h2>
-                     <h3 className={`${merriweather.className} mt-3`}>
+                     <h3 className={`mt-3`}>
                         {designation}
                      </h3>
                      <h3 className="mt-5 font-medium text-lg">
@@ -104,15 +108,18 @@ const LawyerRow = ({ lawyer, idx ,ReFetch, setShow}) => {
                      <h3 className="font-medium text-lg mt-2">
                         <b>Languages: </b> {languages}
                      </h3>
-                     <p className="mt-4">{description}</p>
 
-                     {contacts?.address && (
-                        <p className="flex gap-2 mt-3 items-center">
-                           <FaLocationDot /> {contacts.address}
-                        </p>
-                     )}
+					<p className="flex gap-2 mt-5 items-center">
+						<FaPhone /> {contacts.phone}
+					</p>
+					<p className="flex gap-2 mt-2 items-center">
+						<FaEnvelope /> {contacts.email}
+					</p>
+					<p className="flex gap-2 mt-2 items-center">
+						<FaLocationDot /> {contacts.address}
+					</p>
 
-                     <ul className="flex gap-8 mt-4">
+                     <ul className="flex gap-8 mt-8">
                         
 { socialmedia?.facebook &&
                         <li>
@@ -144,17 +151,10 @@ const LawyerRow = ({ lawyer, idx ,ReFetch, setShow}) => {
 }
                      </ul>
 
-
-                     <Link
-                        href={`/lawyerappointment/${params?.id}`}
-                        className="bg-white px-5 py-3 text-[#a51890] rounded-md mt-5 block w-fit uppercase font-medium"
-                     >
-                        Appointment now
-                     </Link>
                   </div>
                </div>
 			</div>	
-} */}
+}
 		</tr>
 	);
 };
