@@ -23,11 +23,10 @@ const AddLawyerPage = () => {
          if(imageUrl?.data?.data?.display_url){
             const lawyerInfo = {
                name: data?.name,
-               image: "https://i.ibb.co/mb4NNWs/istockphoto-530297753-170667a.jpg",
+               image: imageUrl?.data?.data?.display_url,
                designation: data?.designation,
                department: data?.department,
                experienceyear: data?.experienceyear,
-               practiceArea: data?.practiceArea,
                practiceArea: data?.practiceArea,
                contacts: {
                   address: data?.address,
@@ -45,13 +44,13 @@ const AddLawyerPage = () => {
                experience: experienceInfo
             }
             if(data?.instituteName_1){
-               experienceInfo.push({institutename: data?.instituteName_1, designation: data?.DG_1, department: data?.DP_1, startdate_1: data?.startdate_1, enddate_1: data?.enddate_1})
+               experienceInfo.push({institutename: data?.instituteName_1, designation: data?.DG_1, department: data?.DP_1, startdate: data?.startdate_1, enddate: data?.enddate_1})
             }
             if(data?.instituteName_2){
-               experienceInfo.push({institutename: data?.instituteName_2, designation: data?.DG_2, department: data?.DP_2, startdate_2: data?.startdate_2, enddate_2: data?.enddate_2})
+               experienceInfo.push({institutename: data?.instituteName_2, designation: data?.DG_2, department: data?.DP_2, startdate: data?.startdate_2, enddate: data?.enddate_2})
             }
             if(data?.instituteName_3){
-               experienceInfo.push({institutename: data?.instituteName_3, designation: data?.DG_3, department: data?.DP_3, startdate_3: data?.startdate_3, enddate_3: data?.enddate_3})
+               experienceInfo.push({institutename: data?.instituteName_3, designation: data?.DG_3, department: data?.DP_3, startdate: data?.startdate_3, enddate: data?.enddate_3})
             }
             axios.post('/api/lawyers',lawyerInfo)
             .then(res => {
@@ -751,7 +750,7 @@ const AddLawyerPage = () => {
                      type="submit"
                      className="bg-[#225559] hover:bg-transparent border-2 border-[#225559] border-transparent hover:border-[#225559] text-white hover:text-[#35868b] py-2 px-6 rounded-full duration-300"
                   >
-                     {isSubmitting ? <span className="loading loading-dots loading-md"></span> : "Request Appoinment" }
+                     {isSubmitting ? <span className="loading loading-dots loading-md"></span> : "Add Lawyer" }
                      {/* { "Request Appoinment" } */}
                   </button>
                </div>
